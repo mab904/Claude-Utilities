@@ -3,6 +3,7 @@ Este repositorio es una colección de pequeñas herramientas y utilidades funcio
 
 Por ejemplo, hay un `HTML` que uso para trackear mis rutinas del gimnasio, marcas, pesos, etc; porque usar las notas del móvil me parecía un poco rudimentario.
 
+---
 
 This repository is a collection of small functional tools and utilities designed to solve my own everyday needs, developed with the help of Claude (AI).
 
