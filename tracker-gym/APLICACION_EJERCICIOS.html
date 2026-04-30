@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Ejercicios - Móvil & PC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #FFD700 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .controls label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .controls select {
+            padding: 10px 15px;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background: #FFD700;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .controls button:hover {
+            background: #FFC700;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .ejercicio-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 15px;
+            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .ejercicio-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .ejercicio-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+        }
+
+        .ejercicio-card img[alt="sin-imagen"] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .ejercicio-info {
+            flex: 1;
+        }
+
+        .ejercicio-titulo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .ejercicio-descripcion {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .ejercicio-grupo {
+            display: inline-block;
+            background: #FFD700;
+            color: black;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .pesos-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .peso-item {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .peso-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .peso-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .peso-value input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .notas-container {
+            margin-top: 10px;
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .notas-label {
+            font-size: 11px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .notas-textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 50px;
+            background: white;
+        }
+
+        .notas-textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .botones button {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .btn-editar {
+            background: #FFD700;
+            color: black;
+        }
+
+        .btn-editar:hover {
+            background: #FFC700;
+        }
+
+        .btn-guardar {
+            background: #000000;
+            color: #FFD700;
+        }
+
+        .btn-guardar:hover {
+            background: #333333;
+        }
+
+        .btn-cancelar {
+            background: #666666;
+            color: white;
+        }
+
+        .btn-cancelar:hover {
+            background: #555555;
+        }
+
+        .btn-eliminar {
+            background: #FFD700;
+            color: black;
+        }
+
+        .btn-eliminar:hover {
+            background: #FFC700;
+        }
+
+        .no-resultados {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #000000 0%, #FFD700 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 22px;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .controls select,
+            .controls button {
+                width: 100%;
+            }
+
+            .ejercicio-card {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .ejercicio-card img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .pesos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .ejercicio-card {
+                grid-template-columns: 70px 1fr;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            .ejercicio-card img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .ejercicio-titulo {
+                font-size: 16px;
+            }
+
+            .botones {
+                gap: 5px;
+            }
+
+            .botones button {
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 2px solid #FFD700;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000000;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tracker Gym</h1>
+            <p>Control de peso y progreso - Mab904</p>
+        </header>
+
+        <div class="controls">
+            <label for="grupoSelect">Grupo Muscular:</label>
+            <select id="grupoSelect">
+                <option value="">Todos</option>
+                <option value="Pecho">Pecho</option>
+                <option value="Espalda">Espalda</option>
+                <option value="Hombro">Hombro</option>
+                <option value="Bíceps">Bíceps</option>
+                <option value="Tríceps">Tríceps</option>
+                <option value="Pierna">Pierna</option>
+                <option value="Abdomen">Abdomen</option>
+            </select>
+            <button onclick="abrirModalNuevo()">Nuevo Ejercicio</button>
+            <button onclick="descargarDatos()">Descargar Datos</button>
+        </div>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="content" id="content"></div>
+    </div>
+
+    <div id="modalNuevo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modalNuevo')">&times;</span>
+            <div class="modal-header">Nuevo Ejercicio</div>
+            <div class="form-group">
+                <label>Grupo Muscular:</label>
+                <select id="nuevoGrupo">
+                    <option>Pecho</option>
+                    <option>Espalda</option>
+                    <option>Hombro</option>
+                    <option>Bíceps</option>
+                    <option>Tríceps</option>
+                    <option>Pierna</option>
+                    <option>Abdomen</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" id="nuevoNombre" placeholder="Ej: Press de Banca">
+            </div>
+            <div class="form-group">
+                <label>Descripción:</label>
+                <input type="text" id="nuevoDescripcion" placeholder="Ej: Acostado con barra">
+            </div>
+            <div class="form-group">
+                <label>URL de Imagen:</label>
+                <input type="text" id="nuevoImagen" placeholder="https://...">
+            </div>
+            <div class="form-group">
+                <label>Peso Normal (kg):</label>
+                <input type="number" id="nuevoPesoNormal" placeholder="Ej: 60">
+            </div>
+            <div class="form-group">
+                <label>Peso Máximo (kg):</label>
+                <input type="number" id="nuevoPesoMax" placeholder="Ej: 100">
+            </div>
+            <div class="modal-footer">
+                <button onclick="cerrarModal('modalNuevo')">Cancelar</button>
+                <button onclick="guardarNuevoEjercicio()" class="btn-guardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ejercicios = [
+            { id: 1, grupo: "Pecho", nombre: "Press de Banca", descripcion: "Acostado con barra", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPress de Banca%3C/text%3E%3C/svg%3E", pesoNormal: 60, pesoMax: 100, notas: "Espalda plana" },
+            { id: 2, grupo: "Pecho", nombre: "Aperturas con Mancuernas", descripcion: "De pie o inclinado", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EAperturas Mancuernas%3C/text%3E%3C/svg%3E", pesoNormal: 20, pesoMax: 35, notas: "Controlado" },
+            { id: 3, grupo: "Pecho", nombre: "Flexiones", descripcion: "Cuerpo peso", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EFlexiones%3C/text%3E%3C/svg%3E", pesoNormal: "-", pesoMax: "50 rep", notas: "-" },
+            { id: 4, grupo: "Espalda", nombre: "Remo con Barra", descripcion: "De pie, inclinado", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='22' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ERemo con Barra%3C/text%3E%3C/svg%3E", pesoNormal: 80, pesoMax: 120, notas: "Control movimiento" },
+            { id: 5, grupo: "Espalda", nombre: "Pull-ups", descripcion: "Barra fija", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPull-ups%3C/text%3E%3C/svg%3E", pesoNormal: "-", pesoMax: "20 rep", notas: "Asistido" },
+            { id: 6, grupo: "Espalda", nombre: "Remo al pecho en máquina", descripcion: "En máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ERemo Maquina%3C/text%3E%3C/svg%3E", pesoNormal: 50, pesoMax: 80, notas: "-" },
+            { id: 7, grupo: "Hombro", nombre: "Press de Hombro", descripcion: "De pie", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='22' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPress Hombro%3C/text%3E%3C/svg%3E", pesoNormal: 25, pesoMax: 45, notas: "Controlado" },
+            { id: 8, grupo: "Hombro", nombre: "Elevaciones Laterales", descripcion: "De pie", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EElevaciones Laterales%3C/text%3E%3C/svg%3E", pesoNormal: 12, pesoMax: 20, notas: "Ligero peso" },
+            { id: 9, grupo: "Hombro", nombre: "Press Militar", descripcion: "De pie, sin apoyo", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='22' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPress Militar%3C/text%3E%3C/svg%3E", pesoNormal: 20, pesoMax: 40, notas: "Core activado" },
+            { id: 10, grupo: "Bíceps", nombre: "Curl con Barra", descripcion: "De pie", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='22' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ECurl con Barra%3C/text%3E%3C/svg%3E", pesoNormal: 25, pesoMax: 45, notas: "Movimiento lento" },
+            { id: 11, grupo: "Bíceps", nombre: "Curl con Mancuernas", descripcion: "De pie o sentado", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ECurl Mancuernas%3C/text%3E%3C/svg%3E", pesoNormal: 18, pesoMax: 32, notas: "Alterno" },
+            { id: 12, grupo: "Bíceps", nombre: "Curl en Máquina", descripcion: "En máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='22' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ECurl Maquina%3C/text%3E%3C/svg%3E", pesoNormal: 40, pesoMax: 60, notas: "Remo" },
+            { id: 13, grupo: "Tríceps", nombre: "Extensión de Tríceps", descripcion: "Barra, inclinado", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EExtension Triceps%3C/text%3E%3C/svg%3E", pesoNormal: 20, pesoMax: 40, notas: "Movimiento puro" },
+            { id: 14, grupo: "Tríceps", nombre: "Fondos", descripcion: "En barras", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EFondos%3C/text%3E%3C/svg%3E", pesoNormal: "-", pesoMax: "30 rep", notas: "Asistido" },
+            { id: 15, grupo: "Tríceps", nombre: "Extensión Overhead", descripcion: "Mancuerna o kettlebell", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EExtension OH%3C/text%3E%3C/svg%3E", pesoNormal: 15, pesoMax: 30, notas: "-" },
+            { id: 16, grupo: "Pierna", nombre: "Sentadilla", descripcion: "Libre o máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ESentadilla%3C/text%3E%3C/svg%3E", pesoNormal: 80, pesoMax: 140, notas: "Rodillas alineadas" },
+            { id: 17, grupo: "Pierna", nombre: "Prensa de Piernas", descripcion: "Máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPrensaPiernas%3C/text%3E%3C/svg%3E", pesoNormal: 150, pesoMax: 250, notas: "Espalda apoyada" },
+            { id: 18, grupo: "Pierna", nombre: "Extensión de Cuádriceps", descripcion: "Máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EExt.Cuadriceps%3C/text%3E%3C/svg%3E", pesoNormal: 60, pesoMax: 100, notas: "Controlado" },
+            { id: 19, grupo: "Pierna", nombre: "Flexión de Isquios", descripcion: "Máquina o polea", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EFlexion Isquios%3C/text%3E%3C/svg%3E", pesoNormal: 50, pesoMax: 90, notas: "Pierna extendida" },
+            { id: 20, grupo: "Abdomen", nombre: "Abdominales en Máquina", descripcion: "Máquina", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EAbdominales%3C/text%3E%3C/svg%3E", pesoNormal: 40, pesoMax: 80, notas: "Lento" },
+            { id: 21, grupo: "Abdomen", nombre: "Crunch", descripcion: "Suelo", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3ECrunch%3C/text%3E%3C/svg%3E", pesoNormal: "-", pesoMax: "50 rep", notas: "-" },
+            { id: 22, grupo: "Abdomen", nombre: "Plancha", descripcion: "Estático", imagen: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23FFD700' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EPlancha%3C/text%3E%3C/svg%3E", pesoNormal: "-", pesoMax: "2 min", notas: "Espalda recta" }
+        ];
+
+        function cargarDelLocal() {
+            const datos = localStorage.getItem('ejercicios');
+            if (datos) {
+                ejercicios = JSON.parse(datos);
+            }
+        }
+
+        function guardarEnLocal() {
+            localStorage.setItem('ejercicios', JSON.stringify(ejercicios));
+        }
+
+        function mostrarEjercicios() {
+            const grupo = document.getElementById('grupoSelect').value;
+            const filtrados = grupo ? ejercicios.filter(e => e.grupo === grupo) : ejercicios;
+
+            let html = '';
+            
+            // Mostrar stats
+            const stats = {
+                total: ejercicios.length,
+                grupos: [...new Set(ejercicios.map(e => e.grupo))].length,
+                filtrados: filtrados.length
+            };
+
+            let statsHtml = `
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total}</div>
+                    <div class="stat-label">Ejercicios Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.grupos}</div>
+                    <div class="stat-label">Grupos Musculares</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.filtrados}</div>
+                    <div class="stat-label">En Vista</div>
+                </div>
+            `;
+            document.getElementById('stats').innerHTML = statsHtml;
+
+            if (filtrados.length === 0) {
+                html = '<div class="no-resultados">No hay ejercicios para este grupo muscular</div>';
+            } else {
+                filtrados.forEach(e => {
+                    html += `
+                        <div class="ejercicio-card">
+                            <img src="${e.imagen}" alt="Ejercicio" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 300 200%27%3E%3Crect fill=%27%23FFD700%27 width=%27300%27 height=%27200%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2720%27 fill=%27%23000%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27 font-weight=%27bold%27%3EEjercicio%3C/text%3E%3C/svg%3E'">
+                            <div class="ejercicio-info">
+                                <div class="ejercicio-titulo">${e.nombre}</div>
+                                <div class="ejercicio-descripcion">${e.descripcion}</div>
+                                <span class="ejercicio-grupo">${e.grupo}</span>
+                                <div class="pesos-container">
+                                    <div class="peso-item">
+                                        <div class="peso-label">Peso Normal</div>
+                                        <div class="peso-value"><input type="text" value="${e.pesoNormal}" onchange="actualizarPeso(${e.id}, 'pesoNormal', this.value)"></div>
+                                    </div>
+                                    <div class="peso-item">
+                                        <div class="peso-label">Peso Máximo</div>
+                                        <div class="peso-value"><input type="text" value="${e.pesoMax}" onchange="actualizarPeso(${e.id}, 'pesoMax', this.value)"></div>
+                                    </div>
+                                </div>
+                                <div class="notas-container">
+                                    <label class="notas-label">Notas:</label>
+                                    <textarea class="notas-textarea" onchange="actualizarNotas(${e.id}, this.value)" placeholder="Escribe notas sobre este ejercicio...">${e.notas}</textarea>
+                                </div>
+                                <div class="botones">
+                                    <button class="btn-editar" onclick="abrirModalEditar(${e.id})">Editar</button>
+                                    <button class="btn-eliminar" onclick="eliminarEjercicio(${e.id})">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('content').innerHTML = html;
+        }
+
+        function actualizarPeso(id, campo, valor) {
+            const ejercicio = ejercicios.find(e => e.id === id);
+            if (ejercicio) {
+                ejercicio[campo] = valor;
+                guardarEnLocal();
+            }
+        }
+
+        function actualizarNotas(id, valor) {
+            const ejercicio = ejercicios.find(e => e.id === id);
+            if (ejercicio) {
+                ejercicio.notas = valor;
+                guardarEnLocal();
+            }
+        }
+
+        function eliminarEjercicio(id) {
+            if (confirm('¿Estás seguro de que quieres eliminar este ejercicio?')) {
+                ejercicios = ejercicios.filter(e => e.id !== id);
+                guardarEnLocal();
+                mostrarEjercicios();
+            }
+        }
+
+        function abrirModalNuevo() {
+            document.getElementById('modalNuevo').style.display = 'block';
+        }
+
+        function abrirModalEditar(id) {
+            const e = ejercicios.find(ex => ex.id === id);
+            if (e) {
+                document.getElementById('nuevoGrupo').value = e.grupo;
+                document.getElementById('nuevoNombre').value = e.nombre;
+                document.getElementById('nuevoDescripcion').value = e.descripcion;
+                document.getElementById('nuevoImagen').value = e.imagen;
+                document.getElementById('nuevoPesoNormal').value = e.pesoNormal;
+                document.getElementById('nuevoPesoMax').value = e.pesoMax;
+                
+                document.getElementById('modalNuevo').dataset.editId = id;
+                document.querySelector('.modal-header').innerText = 'Editar Ejercicio';
+                document.getElementById('modalNuevo').style.display = 'block';
+            }
+        }
+
+        function cerrarModal(id) {
+            document.getElementById(id).style.display = 'none';
+            delete document.getElementById(id).dataset.editId;
+            document.querySelector('.modal-header').innerText = 'Nuevo Ejercicio';
+        }
+
+        function guardarNuevoEjercicio() {
+            const editId = document.getElementById('modalNuevo').dataset.editId;
+            
+            const nuevoEj = {
+                grupo: document.getElementById('nuevoGrupo').value,
+                nombre: document.getElementById('nuevoNombre').value,
+                descripcion: document.getElementById('nuevoDescripcion').value,
+                imagen: document.getElementById('nuevoImagen').value,
+                pesoNormal: document.getElementById('nuevoPesoNormal').value,
+                pesoMax: document.getElementById('nuevoPesoMax').value
+            };
+
+            if (!nuevoEj.nombre) {
+                alert('Por favor completa el nombre del ejercicio');
+                return;
+            }
+
+            if (editId) {
+                const index = ejercicios.findIndex(e => e.id == editId);
+                if (index >= 0) {
+                    ejercicios[index] = { ...ejercicios[index], ...nuevoEj };
+                }
+            } else {
+                nuevoEj.id = Math.max(...ejercicios.map(e => e.id)) + 1;
+                ejercicios.push(nuevoEj);
+            }
+
+            guardarEnLocal();
+            cerrarModal('modalNuevo');
+            limpiarFormulario();
+            mostrarEjercicios();
+        }
+
+        function limpiarFormulario() {
+            document.getElementById('nuevoGrupo').value = 'Pecho';
+            document.getElementById('nuevoNombre').value = '';
+            document.getElementById('nuevoDescripcion').value = '';
+            document.getElementById('nuevoImagen').value = '';
+            document.getElementById('nuevoPesoNormal').value = '';
+            document.getElementById('nuevoPesoMax').value = '';
+        }
+
+        function descargarDatos() {
+            const csv = 'ID,Grupo,Nombre,Descripción,Peso Normal,Peso Máximo,Notas\n' +
+                ejercicios.map(e => `${e.id},"${e.grupo}","${e.nombre}","${e.descripcion}","${e.pesoNormal}","${e.pesoMax}","${e.notas}"`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ejercicios_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalNuevo');
+            if (event.target === modal) {
+                cerrarModal('modalNuevo');
+            }
+        }
+
+        document.getElementById('grupoSelect').addEventListener('change', mostrarEjercicios);
+
+        cargarDelLocal();
+        mostrarEjercicios();
+    </script>
+</body>
+</html>
