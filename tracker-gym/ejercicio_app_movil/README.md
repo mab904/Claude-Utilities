@@ -103,7 +103,7 @@ Para el despliegue usé Netlify porque tenía que hacer un repositorio aparte en
 
 **La app está desplegada aquí:**
 
--> [Seguimiento de Ejercicios](https://meek-creponne-56adbd.netlify.app/)
+-> [Seguimiento de Ejercicios](https://gym-tracker-mab.netlify.app)
 
 ## Cómo Instalarla en el Móvil
 
