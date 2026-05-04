@@ -114,7 +114,7 @@ Para el despliegue usé Netlify porque tenía que hacer un repositorio aparte en
 
 Chrome a veces muestra un banner automático abajo preguntando si querés instalarla. Si aparece, puedes usar ese directamente.
 
-**En iPhone (No lo he probado): **
+**En iPhone (No lo he probado):**
 1. Abrir el enlace desde **Safari** (tiene que ser Safari, no Chrome)
 2. Botón de compartir (el cuadrado con la flecha) → **"Añadir a pantalla de inicio"**
 
