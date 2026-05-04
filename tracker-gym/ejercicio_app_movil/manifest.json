@@ -1,6 +1,6 @@
 {
   "name": "Seguimiento de Ejercicios",
-  "short_name": "Ejercicios",
+  "short_name": "Gym Tracker",
   "description": "App de seguimiento de pesos y ejercicios en el gimnasio",
   "start_url": "./index.html",
   "display": "standalone",
