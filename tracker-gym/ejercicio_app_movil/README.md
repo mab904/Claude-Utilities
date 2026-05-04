@@ -99,7 +99,8 @@ El `if ('serviceWorker' in navigator)` es para que no pete en navegadores viejos
 
 La PWA necesita estar en un servidor HTTPS para funcionar. No vale abrir el HTML directamente desde el explorador de archivos, el Service Worker no se registra en local con `file://`.
 
-Para el despliegue usé Netlify porque tenía que hacer un repositorio aparte en Github para usar el Github Pages.
+Para el despliegue usé Netlify porque tenía que hacer un repositorio aparte en Github para usar el Github Pages y me daba pereza cambiar el orden de mis repositorios.
+
 **La app está desplegada aquí:**
 
 -> [Seguimiento de Ejercicios](https://meek-creponne-56adbd.netlify.app/)
@@ -113,7 +114,7 @@ Para el despliegue usé Netlify porque tenía que hacer un repositorio aparte en
 
 Chrome a veces muestra un banner automático abajo preguntando si querés instalarla. Si aparece, puedes usar ese directamente.
 
-**En iPhone: (No lo he probado)**
+**En iPhone (No lo he probado): **
 1. Abrir el enlace desde **Safari** (tiene que ser Safari, no Chrome)
 2. Botón de compartir (el cuadrado con la flecha) → **"Añadir a pantalla de inicio"**
 
