@@ -1,103 +1,148 @@
-<h1 align="center">Hi there, I'm Mab 👋</h1>
-
+<!-- BANNER -->
 <p align="center">
-  <em>SysAdmin in the making · Automation enthusiast · Based in Madrid 🇪🇸</em>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=Manuel%20Acosta&fontSize=55&fontColor=ffffff&fontAlignY=38&desc=SysAdmin%20%7C%20Automation%20Enthusiast%20%7C%20Madrid&descSize=18&descAlignY=58&animation=fadeIn" alt="header banner" />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=mab904&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
-  <img src="https://img.shields.io/badge/Focus-System%20Administration-blue?style=flat" alt="focus" />
-  <img src="https://img.shields.io/badge/Status-Open%20to%20opportunities-success?style=flat" alt="status" />
+  <a href="https://github.com/mab904">
+    <img src="https://komarev.com/ghpvc/?username=mab904&label=Profile%20views&color=0e75b6&style=for-the-badge" alt="profile views" />
+  </a>
+  <img src="https://img.shields.io/badge/Focus-System%20Administration-blue?style=for-the-badge" alt="focus" />
+  <img src="https://img.shields.io/badge/Status-Open%20to%20opportunities-success?style=for-the-badge" alt="status" />
 </p>
 
----
+<!-- ABOUT ME -->
+<h2 align="center">About Me</h2>
 
-## 🧑‍💻 About me
+<img align="right" height="160" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="coding gif" />
 
-I'm an **ASIR graduate from Spain** (*Administración de Sistemas Informáticos en Red*), passionate about **system administration, automation, and designing efficient workflows**.
+I'm an **ASIR graduate from Spain** *(Administración de Sistemas Informáticos en Red)*, passionate about **system administration, automation, and designing efficient workflows**.
 
-I enjoy working with Linux environments, networking, virtualization, and anything related to building and optimizing systems — both in IT infrastructure and in factory-simulation games like **Factorio**, **Satisfactory**, or **Dyson Sphere Program** 🏭⚙️
+I enjoy working with Linux environments, networking, virtualization, and anything related to building and optimizing systems — both in IT infrastructure and in factory-simulation games like **Factorio**, **Satisfactory**, or **Dyson Sphere Program**.
 
-- 🔭 Currently working on **PHP** and **Python** practice collections
-- 🌱 Learning more about **Docker**, **CI/CD**, and **infrastructure as code**
-- 🎯 Goal: become a solid SysAdmin / DevOps engineer
-- 💬 Ask me about **Linux**, **networking**, or **virtualization**
+- Currently working on **PHP** and **Python** practice collections
+- Learning more about **Docker**, **CI/CD**, and **infrastructure as code**
+- Goal: become a solid **SysAdmin / DevOps engineer**
+- Ask me about **Linux**, **networking**, or **virtualization**
 
----
+<br clear="right" />
 
-## 🛠️ Tech Stack
+<!-- DIVIDER -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=3" width="100%" alt="divider" />
 
-### Operating Systems
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Debian](https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Windows Server](https://img.shields.io/badge/Windows%20Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+<!-- TECH STACK -->
+<h2 align="center">Tech Stack</h2>
 
-### Languages & Scripting
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
-![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![XML](https://img.shields.io/badge/XML-005C84?style=for-the-badge&logo=w3c&logoColor=white)
+<p align="center"><b>Operating Systems</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=linux,debian,ubuntu,windows" alt="OS icons" />
+</p>
 
-### Networking & Services
-![Cisco](https://img.shields.io/badge/Cisco-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
-![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white)
-![NGINX](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
-![OpenSSH](https://img.shields.io/badge/OpenSSH-000000?style=for-the-badge&logo=openssh&logoColor=white)
+<p align="center"><b>Languages &amp; Scripting</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,php,bash,powershell,html,css" alt="Languages icons" />
+</p>
 
-### Virtualization & Containers
-![VMware](https://img.shields.io/badge/VMware-607078?style=for-the-badge&logo=vmware&logoColor=white)
-![VirtualBox](https://img.shields.io/badge/VirtualBox-183A61?style=for-the-badge&logo=virtualbox&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+<p align="center"><b>Networking &amp; Services</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=cisco,apache,nginx,ssh" alt="Networking icons" />
+</p>
 
-### Databases
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+<p align="center"><b>Virtualization &amp; Containers</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=vmware,virtualbox,docker" alt="Virtualization icons" />
+</p>
 
-### Tools
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+<p align="center"><b>Databases</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=mysql,sqlserver" alt="Databases icons" />
+</p>
 
----
+<p align="center"><b>Tools</b></p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=git,github,vscode" alt="Tools icons" />
+</p>
 
-## 📂 Featured Projects
+<!-- DIVIDER -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=3" width="100%" alt="divider" />
 
-Projects from my **ASIR** studies, organized by area:
+<!-- PROJECTS -->
+<h2 align="center">Featured Projects</h2>
 
-| Repository | Description | Tech |
-| :--- | :--- | :--- |
-| [🌐 asir-network-and-internet-services](https://github.com/mab904/asir-network-and-internet-services) | Network configurations and Internet services labs | Networking, DNS, DHCP |
-| [🖥️ asir-operating-systems-administration](https://github.com/mab904/asir-operating-systems-administration) | OS administration on Linux & Windows Server | Linux, Windows Server |
-| [🔒 asir-security-high-availability](https://github.com/mab904/asir-security-high-availability) | Security policies and high-availability setups | Firewalls, HA |
-| [🐍 asir-python-practice-collection](https://github.com/mab904/asir-python-practice-collection) | Python exercises and scripts *(in progress)* | Python |
-| [🐘 asir-php-practice-collection](https://github.com/mab904/asir-php-practice-collection) | PHP exercises and small projects *(in progress)* | PHP |
+<p align="center">Projects from my <b>ASIR</b> studies, organized by area:</p>
 
----
+<table align="center">
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Description</th>
+      <th>Tech</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/mab904/asir-network-and-internet-services">asir-network-and-internet-services</a></td>
+      <td>Network configurations and Internet services labs</td>
+      <td>Networking, DNS, DHCP</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/mab904/asir-operating-systems-administration">asir-operating-systems-administration</a></td>
+      <td>OS administration on Linux &amp; Windows Server</td>
+      <td>Linux, Windows Server</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/mab904/asir-security-high-availability">asir-security-high-availability</a></td>
+      <td>Security policies and high-availability setups</td>
+      <td>Firewalls, HA</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/mab904/asir-python-practice-collection">asir-python-practice-collection</a></td>
+      <td>Python exercises and scripts <em>(in progress)</em></td>
+      <td>Python</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/mab904/asir-php-practice-collection">asir-php-practice-collection</a></td>
+      <td>PHP exercises and small projects <em>(in progress)</em></td>
+      <td>PHP</td>
+    </tr>
+  </tbody>
+</table>
 
-## 📊 GitHub Stats
+<!-- DIVIDER -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=3" width="100%" alt="divider" />
+
+<!-- GITHUB STATS -->
+<h2 align="center">GitHub Stats</h2>
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mab904&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="mab904's GitHub stats" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mab904&layout=compact&theme=tokyonight" alt="Top Languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mab904&theme=tokyonight" alt="profile summary" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mab904&theme=tokyonight" alt="GitHub Streak" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=mab904&theme=tokyonight" alt="languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=mab904&theme=tokyonight" alt="most used languages" />
 </p>
 
----
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=mab904&theme=tokyonight" alt="stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=mab904&theme=tokyonight&utcOffset=2" alt="productive time" />
+</p>
 
-## 📫 How to reach me
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mab904&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+</p>
 
-<p align="left">
-  <a href="mailto:tu-email@ejemplo.com">
+<!-- DIVIDER -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,20,24&height=3" width="100%" alt="divider" />
+
+<!-- CONTACT -->
+<h2 align="center">How to reach me</h2>
+
+<p align="center">
+  <a href="mailto:manuelacostabalume@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
-  <a href="https://www.linkedin.com/in/tu-perfil/">
+  <a href="https://www.linkedin.com/in/manuel-acosta-6a9728368">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <a href="https://github.com/mab904">
@@ -105,8 +150,9 @@ Projects from my **ASIR** studies, organized by area:
   </a>
 </p>
 
----
-
+<!-- FOOTER -->
 <p align="center">
-  <em>"Optimizing systems, one workflow at a time."</em> ⚙️
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=120&section=footer" alt="footer banner" />
 </p>
+
+<p align="center"><em>"Optimizing systems, one workflow at a time."</em></p>
