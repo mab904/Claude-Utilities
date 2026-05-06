@@ -13,6 +13,7 @@ El objetivo real era experimentar con IAs locales y ver varias cosas:
 - Si de verdad "escuchaban" lo que decían las otras IAs o simplemente ignoraban el historial del debate
 - Si había demasiado consenso (spoiler: sí, tienden a ponerse de acuerdo mucho)
 - Si las personalidades MBTI se notaban en las respuestas o era todo igual
+- Ultimamente he visto que las simulaciones con agentes de IA se han popularizado y quería probar por mi cuenta
 
 La respuesta corta: funciona, es interesante, pero tiene limitaciones bastante claras que explico más abajo.
 
