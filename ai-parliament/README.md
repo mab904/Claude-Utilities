@@ -13,6 +13,7 @@ The real goal was to experiment with local AIs and see a few things:
 - Whether they actually "listen" to what the other AIs say or just ignore the debate history
 - Whether there'd be too much consensus (spoiler: yes, they tend to agree a lot)
 - Whether the MBTI personalities show up in the responses, or it all sounds the same
+- Lately I've seen AI agent simulations getting a lot of traction and I wanted to give it a try.
 
 Short answer: it works, it's interesting, but it has some pretty clear limitations that I cover further down.
 
