@@ -36,7 +36,7 @@ El `system_prompt` de cada uno le dice quién es, cómo habla, y qué frases usa
 ```bash
 # 1. Instalar Ollama desde https://ollama.com
 ollama serve                       # déjalo corriendo en otra terminal
-ollama pull llama3.2               # el modelo que usan las IAs (~2 GB)
+ollama pull llama3.2               # el modelo que usan las IAs (~2 GB) (otro modelo con más potencia haría el programa más fluido)
 ollama pull nomic-embed-text       # opcional, para memoria semántica (~270 MB)
 
 # 2. Instalar dependencias Python
@@ -136,7 +136,7 @@ El **anillo pulsante** alrededor del cuerpo aparece cuando está activo en algo:
 
 Esto es importante porque si lo vas a usar conviene saber con qué te vas a encontrar.
 
-**Los modelos tardan mucho.** Ollama corre en local, gratis, pero en CPU normal cada respuesta puede tardar entre 5 y 20 segundos. Un parlamento completo puede llevarse 2-3 minutos. Si tienes GPU es mucho más rápido. Es la limitación más grande que hay.
+**Los modelos tardan mucho.** Ollama corre en local, totalmente gratis, pero en CPU normal cada respuesta puede tardar entre 5 y 20 segundos. Un parlamento completo puede llevarse 2-3 minutos. Si tienes GPU es mucho más rápido. Es la limitación más grande que hay.
 
 **Hay timeouts.** Cuando 6 agentes llaman a Ollama en paralelo, Ollama los procesa de uno en uno internamente. El último de la cola puede esperar 90 segundos solo en la cola, más el tiempo de generación. Si el modelo es lento ese día, se pasa del timeout. Hay reintentos automáticos (hasta 3 intentos con 180 segundos cada uno), pero si Ollama está muy cargado puede fallar igualmente. En las fases anteriores al debate no importa mucho, pero en la postura final hay un fallback que usa lo que el agente dijo en el debate como postura.
 
