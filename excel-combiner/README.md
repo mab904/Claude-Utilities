@@ -11,11 +11,12 @@ Combina automáticamente todos los archivos Excel (`.xlsx`) que estén en la mis
 
 ### ¿Cómo se usa?
 
-1. Pon el archivo `Combinador Excel.exe` en la misma carpeta que los archivos Excel que quieras combinar.
-2. Haz doble clic en `Combinador Excel.exe`.
-3. Se abrirá una ventana mostrando el progreso y el resumen.
-4. Al terminar aparecerá el archivo combinado en la misma carpeta con el nombre: `Combined_Excel_YYYYMMDD_HHMMSS.xlsx`
-5. Pulsa Enter para cerrar la ventana.
+1. Compilar el `combinador.py`.
+2. Pon el archivo `Combinador Excel.exe` en la misma carpeta que los archivos Excel que quieras combinar.
+3. Haz doble clic en `Combinador Excel.exe`.
+4. Se abrirá una ventana mostrando el progreso y el resumen.
+5. Al terminar aparecerá el archivo combinado en la misma carpeta con el nombre: `Combined_Excel_YYYYMMDD_HHMMSS.xlsx`
+6. Pulsa Enter para cerrar la ventana.
 
 ### Reglas de combinación
 
@@ -45,11 +46,12 @@ Automatically combines all Excel files (`.xlsx`) located in the same folder as t
 
 ### How to use it?
 
-1. Place `Combinador Excel.exe` in the same folder as the Excel files you want to combine.
-2. Double-click `Combinador Excel.exe`.
-3. A window will open showing progress and a summary.
-4. When done, the combined file will appear in the same folder named: `Combined_Excel_YYYYMMDD_HHMMSS.xlsx`
-5. Press Enter to close the window.
+1. Compile `combinador.py`.
+2. Place `Combinador Excel.exe` in the same folder as the Excel files you want to combine.
+3. Double-click `Combinador Excel.exe`.
+4. A window will open showing progress and a summary.
+5. When done, the combined file will appear in the same folder named: `Combined_Excel_YYYYMMDD_HHMMSS.xlsx`
+6. Press Enter to close the window.
 
 ### Combination rules
 
