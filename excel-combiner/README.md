@@ -34,7 +34,7 @@ Combina automáticamente todos los archivos Excel (`.xlsx`) que estén en la mis
 ### Notas
 
 - Los archivos llamados `Combined_Excel_...` se excluyen automáticamente para evitar combinar resultados anteriores y que se mezclen.
-- No es necesario instalar Python ni ningún programa adicional.
+
 
 ---
 
@@ -69,4 +69,4 @@ Automatically combines all Excel files (`.xlsx`) located in the same folder as t
 ### Notes
 
 - Files named `Combined_Excel_...` are automatically excluded to avoid re-combining and mixing previous results.
-- No need to install Python or any additional software.
+
